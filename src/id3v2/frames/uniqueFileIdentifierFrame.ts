@@ -126,7 +126,7 @@ export default class UniqueFileIdentifierFrame extends Frame {
 
     /** @inheritDoc */
     protected parseFields(data: ByteVector): void {
-        const fields = data.split(ByteVector.getTextDelimiter(StringType.Latin1));
+        const fields = data.split(ByteVector.getTextDelimiter(StringType.Latin1), 1, 2);
         if (fields.length !== 2) {
             return;
         }

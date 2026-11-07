@@ -154,7 +154,7 @@ export default class FlacFile extends File implements ISandwichFile {
 
             // Step 4) Add padding block as necessary
             let paddingLength: number;
-            if (metadataBytes.length < oldMetadataLength) {
+            if (metadataBytes.length + FlacBlock.HEADER_SIZE <= oldMetadataLength) {
                 // Case 1: New metadata blocks are smaller than old ones. Use remaining space as padding
                 paddingLength = oldMetadataLength - metadataBytes.length - FlacBlock.HEADER_SIZE;
             } else {
